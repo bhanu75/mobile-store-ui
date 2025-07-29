@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Modern Checkout</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="container">
+  <!-- LEFT SIDE -->
+  <div class="left">
+    <h2>Checkout</h2>
+
+    <div class="form-group">
+      <label for="country">Delivery Country</label>
+      <select id="country">
+        <option>India</option>
+        <option>USA</option>
+        <option>Canada</option>
+        <option>Australia</option>
+        <option>UK</option>
+        <option>Germany</option>
+      </select>
+    </div>
+
+    <div class="section" id="promo-section">
+      <h3 onclick="toggleSection('promo-section')">Promo Code ▼</h3>
+      <div class="content">
+        <input type="text" placeholder="Enter promo code" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <div class="email-inline">
+        <input type="email" id="email" placeholder="your@email.com" />
+        <button onclick="unlockNextSteps()">Add</button>
+      </div>
+    </div>
+
+    <div class="section collapsed" id="address-section">
+      <h3 onclick="toggleSection('address-section')">Delivery Address ▼</h3>
+      <div class="content">
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" placeholder="e.g. Bhanu Tripathi" />
+        </div>
+        <div class="form-group">
+          <label for="mobile">Mobile Number</label>
+          <input type="tel" id="mobile" placeholder="10-digit mobile number" />
+        </div>
+        <div class="form-group">
+          <label for="pincode">Pincode</label>
+          <input type="text" id="pincode" placeholder="e.g. 110001" />
+        </div>
+        <div class="form-group">
+          <label for="address">Full Address</label>
+          <textarea id="address" rows="3" placeholder="House No, Street, Area..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="landmark">Landmark (optional)</label>
+          <input type="text" id="landmark" placeholder="Near temple, mall, etc." />
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" id="city" placeholder="e.g. New Delhi" />
+        </div>
+        <div class="form-group">
+          <label for="state">State</label>
+          <input type="text" id="state" placeholder="e.g. Delhi" />
+        </div>
+        <div class="form-group">
+          <label>Address Type</label>
+          <div style="display: flex; gap: 16px; margin-top: 8px;">
+            <label><input type="radio" name="addresstype" checked /> Home</label>
+            <label><input type="radio" name="addresstype" /> Office</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section collapsed" id="delivery-section">
+      <h3 onclick="toggleSection('delivery-section')">Delivery Options ▼</h3>
+      <div class="content">
+        <select id="delivery-option" onchange="updateDeliveryCharge()">
+          <option value="0">Standard Delivery (Free)</option>
+          <option value="99">Express Delivery (+ ₹99)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="section collapsed" id="payment-section">
+      <h3 onclick="toggleSection('payment-section')">Payment ▼</h3>
+      <div class="content">
+        <select>
+          <option>Cash on Delivery</option>
+          <option>UPI</option>
+          <option>Credit / Debit Card</option>
+        </select>
+      </div>
+    </div>
+
+    <button onclick="placeOrder()">Place Order</button>
+    <div class="confirmation" id="confirmation">
+      ✅ Your order has been placed successfully!
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="right">
+    <h3>Your Cart (1 Item)</h3>
+    <div class="cart-item">
+      <img src="https://via.placeholder.com/70x90" alt="Product" />
+      <div class="cart-item-details">
+        <p style="margin: 0;">Redmi Note 12 Pro</p>
+        <small>Color: Black | Qty: 1</small>
+        <strong>₹17,999</strong>
+      </div>
+    </div>
+    <div class="total" id="total-summary">
+      Subtotal: ₹17,999 <br />
+      Delivery Charge: ₹0 <br />
+      <strong>Total to Pay: ₹17,999</strong>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
