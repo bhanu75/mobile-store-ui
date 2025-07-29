@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <h1>📱 Mobile Shop</h1>
+  <div id="cart-count">Cart: 0 items</div>
+</header>
+
+<main>
+
+  <!-- Section 1: Product Listing -->
+  <section id="product-list">
+    <!-- Products will be injected here by JS -->
+  </section>
+
+  <!-- Section 2: Product Detail -->
+  <section id="product-detail" class="hidden">
+    <h2 id="detail-title"></h2>
+    <img id="detail-img" />
+    <p id="detail-desc"></p>
+    <p id="detail-price"></p>
+    <button onclick="showCheckout()">Proceed to Buy</button>
+    <button onclick="goBack()">⬅ Back to Products</button>
+  </section>
+
+  <!-- Section 3: Checkout Form -->
+  <section id="checkout" class="hidden">
+    <h2>Checkout</h2>
+    <form id="checkout-form">
+      <input type="text" placeholder="Your Name" required><br>
+      <input type="text" placeholder="Address" required><br>
+      <select required>
+        <option value="">Select Payment</option>
+        <option value="cod">Cash on Delivery</option>
+        <option value="card">Credit/Debit Card</option>
+      </select><br>
+      <button type="submit">Place Order</button>
+    </form>
+    <div id="confirmation" class="hidden">✅ Order Placed Successfully!</div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
